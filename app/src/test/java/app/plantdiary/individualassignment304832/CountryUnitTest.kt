@@ -110,7 +110,7 @@ class CountryUnitTest {
 
     private fun givenViewModelIsInitializedWithMockData() {
         val countries = ArrayList<Country>()
-        countries.add(Country("BZ", "Belize"))
+        countries.add(Country("BK", "Belize"))
         countries.add(Country("GB", "United Kingdom"))
         countries.add(Country("US", "United States"))
 
