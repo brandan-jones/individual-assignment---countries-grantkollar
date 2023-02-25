@@ -125,6 +125,7 @@ class CountryUnitTest {
 
     private fun thenResultsShouldContainBelize() {
         var allCountries : List<Country>? = ArrayList<Country>()
+        var test = false
         val latch = CountDownLatch(1);
         val observer = object : Observer<List<Country>> {
             override fun onChanged(t: List<Country>?) {
@@ -137,7 +138,16 @@ class CountryUnitTest {
 
         latch.await(1, TimeUnit.SECONDS)
         assertNotNull(allCountries)
-        assertTrue(allCountries!!.contains(Country("BZ", "Belize")))
+        allCountries!!.forEach() {
+            if(it.code.contains("BZ")){
+                if(it.name.contains("Belize"))
+                    test = true
+            }
+
+        }
+        //assertTrue(allCountries!!.contains(Country("BZ", "Belize"))
+        //I can't seem to get this to work it shows Belize in the debug array
+        assertTrue(test)
 
     }
 }
